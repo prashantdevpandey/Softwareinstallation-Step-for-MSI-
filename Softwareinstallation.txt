@@ -1,0 +1,27 @@
+1.Command to check whether product is available or Not like firefox or Adobe flash player
+
+Get-WmiObject -Namespace "root\cimv2" -Class Win32_Product -ComputerName localhost | Where-Object {$_.Name -like "*Mozila*"}
+
+2.Command to install the fire fox 
+
+Command:- msiexec.exe /i "D:\softwares\Firefox-47.0-ach.msi" /qn /l* C:\scripts\firefox.txt
+
+3.Command to uninstall the  fire fox
+
+Command to install the adobe flash player 
+
+msiexec.exe /i "D:\softwares\install_flash_player_22_ppapi.msi" /qn /l* C:\scripts\adobeflash.txt
+
+
+4.Command to uninstall the fire fox 
+
+Command:- msiexec.exe /x "D:\softwares\Firefox-47.0-ach.msi" /qn /l* C:\scripts\uninstallfirefox.txt
+
+
+5.Command to uninstall the adobe flash player 
+
+msiexec.exe /x "D:\softwares\install_flash_player_22_ppapi.msi" /qn /l* C:\scripts\uninstalladobeflash.txt
+
+6.Command to check whether product is available or Not like firefox or Adobe flash player Once again checking product is uninstalled or not
+
+Get-WmiObject -Namespace "root\cimv2" -Class Win32_Product -ComputerName localhost | Where-Object {$_.Name -like "*Mozila*","*Flash*","*Notepad++*" }|select Name
